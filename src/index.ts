@@ -1,3 +1,4 @@
+import { Loader } from 'pixi.js';
 import { Application, Sprite } from 'pixi.js'
 
 const app = new Application({
@@ -5,15 +6,23 @@ const app = new Application({
 	resolution: window.devicePixelRatio || 1,
 	autoDensity: true,
 	backgroundColor: 0x6495ed,
-	width: 600,
-	height: 400
+	width: 500,
+	height: 344
 });
 
-const clampy: Sprite = Sprite.from("kramer.jpg");
+Loader.shared.add({url: "./kramer.jpg", name: "Cosmo"});
 
-clampy.anchor.set(0.5);
+Loader.shared.onComplete.add(()=>{
 
-clampy.x = 300;
-clampy.y = 200;
+const kramer: Sprite = Sprite.from("Cosmo");
 
-app.stage.addChild(clampy);
+console.log("Hola Mundo!",kramer.width,kramer.height);
+
+kramer.x = 0;
+kramer.y = 0;
+
+app.stage.addChild(kramer);
+
+});
+
+Loader.shared.load();
