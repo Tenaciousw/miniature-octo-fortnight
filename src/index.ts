@@ -33,22 +33,21 @@ window.addEventListener("resize", ()=>{
 window.dispatchEvent(new Event("resize"));
 
 Loader.shared.add({url: "./bart.png", name: "Bart"});
+Loader.shared.add({url: "./Gorrito.png", name: "Gorra"});
 
 Loader.shared.onComplete.add(()=>{
 
 const Bart: Sprite = Sprite.from("Bart");
+const Gorra: Sprite = Sprite.from("Gorra");
 
 console.log("Multiplicate por cero!",Bart.width,Bart.height);
 
-Bart.x = 0;
-Bart.y = 0;
+Gorra.scale.set(0.13,0.13);
 
-Bart.scale.x =0.5;
-Bart.scale.y =0.5;
-
-Bart.angle = -45;
+Gorra.angle=10;
 
 app.stage.addChild(Bart);
+app.stage.addChild(Gorra);
 
 });
 
