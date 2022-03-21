@@ -1,4 +1,4 @@
-import { Loader } from 'pixi.js';
+import { Container, Loader } from 'pixi.js';
 import { Application, Sprite } from 'pixi.js'
 
 const app = new Application({
@@ -40,14 +40,20 @@ Loader.shared.onComplete.add(()=>{
 const Bart: Sprite = Sprite.from("Bart");
 const Gorra: Sprite = Sprite.from("Gorra");
 
-console.log("Multiplicate por cero!",Bart.width,Bart.height);
-
-Gorra.scale.set(0.13,0.13);
+Gorra.position.set(295,10);
+Gorra.scale.set(0.25,0.25);
 
 Gorra.angle=10;
 
-app.stage.addChild(Bart);
-app.stage.addChild(Gorra);
+const bartwithhat: Container = new Container();
+
+bartwithhat.addChild(Bart);
+bartwithhat.addChild(Gorra);
+
+bartwithhat.scale.set(0.5);
+bartwithhat.position.set(180,90);
+
+app.stage.addChild(bartwithhat);
 
 });
 
