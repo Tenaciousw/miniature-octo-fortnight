@@ -1,5 +1,6 @@
 import { Container, Loader } from 'pixi.js';
 import { Application, Sprite } from 'pixi.js'
+import { assets } from './assets';
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -32,8 +33,7 @@ window.addEventListener("resize", ()=>{
 });
 window.dispatchEvent(new Event("resize"));
 
-Loader.shared.add({url: "./bart.png", name: "Bart"});
-Loader.shared.add({url: "./Gorrito.png", name: "Gorra"});
+Loader.shared.add(assets);
 
 Loader.shared.onComplete.add(()=>{
 
@@ -51,9 +51,9 @@ bartwithhat.addChild(Bart);
 bartwithhat.addChild(Gorra);
 
 bartwithhat.scale.set(0.5);
-bartwithhat.position.set(180,90);
 
 app.stage.addChild(bartwithhat);
+
 
 });
 
