@@ -1,6 +1,7 @@
-import { Container, Loader } from 'pixi.js';
-import { Application, Sprite } from 'pixi.js'
+import { Loader } from 'pixi.js';
+import { Application } from 'pixi.js'
 import { assets } from './assets';
+import { Scene } from './Scene';
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -37,23 +38,8 @@ Loader.shared.add(assets);
 
 Loader.shared.onComplete.add(()=>{
 
-const Bart: Sprite = Sprite.from("Bart");
-const Gorra: Sprite = Sprite.from("Gorra");
-
-Gorra.position.set(295,10);
-Gorra.scale.set(0.25,0.25);
-
-Gorra.angle=10;
-
-const bartwithhat: Container = new Container();
-
-bartwithhat.addChild(Bart);
-bartwithhat.addChild(Gorra);
-
-bartwithhat.scale.set(0.5);
-
-app.stage.addChild(bartwithhat);
-
+const myScene = new Scene();
+app.stage.addChild(myScene);
 
 });
 
